@@ -1,11 +1,21 @@
 import 'dart:ui';
+import 'package:aula6/model/profile.dart';
 import 'package:aula6/widgets/mycard.dart';
 import 'package:aula6/widgets/mydrawer.dart';
 import 'package:aula6/widgets/mystory.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+  //Criando lista de dados
+  final List<Profile> listaDados =[
+    Profile(name:"Oswald", image: "", like: true),
+    Profile(name:"Giovana", image: "", like: false),
+    Profile(name:"Hilário", image: "", like: true),
+    Profile(name:"Homer", image: "", like: false),
+    Profile(name:"Augusta", image: "", like: true)
+  ];
+
+   MyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +32,11 @@ class MyHomePage extends StatelessWidget {
               height: 200,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 10,
+                itemCount: listaDados.length,
                 itemBuilder: (context, itens) {
-                  return MyStory(title: "Carros");
+                  return MyStory(
+                    title: listaDados[itens].name
+                    );
                 }
               ),
             ),
@@ -32,9 +44,13 @@ class MyHomePage extends StatelessWidget {
               height: 200,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 10,
-                itemBuilder: (context, itens) {
-                  return MyCard(title: "Bicicletas" , image:"", like:false);
+                itemCount: listaDados.length,
+                itemBuilder: (context, item) {
+                  return MyCard(
+                    title:listaDados[item].name, 
+                    image:listaDados[item].image, 
+                    like:listaDados[item].like
+                    );
                   }
         )
         )
