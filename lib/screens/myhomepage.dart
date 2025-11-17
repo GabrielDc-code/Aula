@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:aula6/model/profile.dart';
+import 'package:aula6/widgets/mybottomnavigation.dart';
 import 'package:aula6/widgets/mycard.dart';
 import 'package:aula6/widgets/mydrawer.dart';
 import 'package:aula6/widgets/mystory.dart';
@@ -8,7 +9,10 @@ import 'package:flutter/material.dart';
 class MyHomePage extends StatelessWidget {
   //Criando lista de dados
   final List<Profile> listaDados =[
-    Profile(name:"Oswald", image: "", like: true),
+    Profile(name:"Oswald", 
+      image: "https://limbuscompany.wiki.gg/wiki/Vergilius#/media/File:Vergilius_StandingSprite.png", 
+      like: true,
+    ),
     Profile(name:"Giovana", image: "", like: false),
     Profile(name:"Hilário", image: "", like: true),
     Profile(name:"Homer", image: "", like: false),
@@ -35,8 +39,9 @@ class MyHomePage extends StatelessWidget {
                 itemCount: listaDados.length,
                 itemBuilder: (context, itens) {
                   return MyStory(
-                    title: listaDados[itens].name
-                    );
+                    image: listaDados[itens].image,
+                    title: listaDados[itens].name,
+                  );
                 }
               ),
             ),
@@ -57,6 +62,7 @@ class MyHomePage extends StatelessWidget {
         ],
         ),
       ),
+      bottomNavigationBar : MyBottomNavigation()
     );
   }
 }
