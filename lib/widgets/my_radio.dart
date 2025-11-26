@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class MyRadio extends StatefulWidget {
-  const MyRadio({super.key});
+  final String? title; 
+
+  const MyRadio({super.key ,required this.title});
 
   @override
   State<MyRadio> createState() => _MyRadioState();
@@ -9,16 +11,16 @@ class MyRadio extends StatefulWidget {
 
 class _MyRadioState extends State<MyRadio> {
    
-int _value = 1;
+int _value = 0;
 
   @override
   Widget build(BuildContext context) {
     return Expanded( 
       child : RadioListTile(
-      value: _value,
       onChanged: (v)=>_value!=v,
-      groupValue:1 ,
-      title: Text("Gênero"),
+      groupValue:0 ,
+      value: _value,
+      title: Text(widget.title!),
       ),
     );
   }
