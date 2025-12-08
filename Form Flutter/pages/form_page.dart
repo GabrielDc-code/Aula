@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:form_flutter/widgets/my_alert.dart';
 import 'package:form_flutter/widgets/my_button.dart';
 import 'package:form_flutter/widgets/my_checkbox.dart';
+import 'package:form_flutter/widgets/my_drawer.dart';
 import 'package:form_flutter/widgets/my_radio.dart';
 import 'package:form_flutter/widgets/my_slider.dart';
 import 'package:form_flutter/widgets/my_switch.dart';
@@ -46,6 +47,8 @@ class _FormPageState extends State<FormPage> {
           style: TextStyle(),
         ),
       ),
+      
+      drawer: const MyDrawer(),
 
       body: SingleChildScrollView(
         child: Padding(
